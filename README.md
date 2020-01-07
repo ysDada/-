@@ -39,3 +39,8 @@ lottery.init(data)
  
 ### 第二个参数传入必中奖品名称，奖品名称必须在传入的奖品数组中
 lottery.init(data, '电风扇')
+
+### 第三个参数，可选参数，传入方块移动动画间隔时间，最好长度7个以内，单位:S
+lottery.init(data, '电风扇', {
+  animationTimeList: [0.7, 0.5, 0.3, 0.2, 0.1, 0.05]
+}) 
