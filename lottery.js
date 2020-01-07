@@ -26,8 +26,10 @@
     {
       name: '小度音响',
     },
-  ], getTrophys = ''
-  
+  ]
+  let getTrophys = ''
+
+  let animationTimeList = [0.7, 0.5, 0.3, 0.2, 0.1, 0.05]
 
   let findDom = function(domList, i) {
     let dom
@@ -41,8 +43,13 @@
     return dom
   }
 
-  lottery.init = function (data, trophy) {
+  lottery.init = function (data, trophy, params) {
     let trophyList = data || trophys
+
+    if(params){
+      animationTimeList = params.animationTimeList || animationTimeList
+    }
+    
     if(trophyList.length!=8){
       alert('请传入正确的数据')
       return
@@ -90,7 +97,7 @@
 
   //设置动画
   lottery.animationList = function(trophys, trophy) {
-    let trophyIndex = -1, animationList = [], list = []
+    let trophyIndex = -1, list = []
     if(trophy){
       trophyIndex = trophys.findIndex((item)=>{
         return item.name == trophy
@@ -112,16 +119,14 @@
     list = [...trophys, ...trophys, ...trophys, ...trophys.slice(0, trophyIndex+1)]
     getTrophys = list[list.length-1].name
     console.log(list)
-    
-    animationList = [0.7, 0.5, 0.3, 0.2, 0.1, 0.05]
 
     return list.map((i,index)=>{
-      if(index < 6){
-        return animationList[index]
-      } else if(index > list.length - 6){
-        return animationList[animationList.length - (index + 6 - (list.length - 1))]
+      if(index < animationTimeList.length){
+        return animationTimeList[index]
+      } else if(index > list.length - animationTimeList.length){
+        return animationTimeList[animationTimeList.length - (index + animationTimeList.length - (list.length - 1))]
       } else {
-        return animationList[animationList.length - 1]
+        return animationTimeList[animationTimeList.length - 1]
       }
     })
   }
