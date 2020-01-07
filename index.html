@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./lottery.css">
+  <style>
+    html, body{
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <script type="text/javascript" src="./lottery.js"></script>
+</head>
+<body>
+  <div class="lottery-div"></div>
+</body>
+</html>
+<script>
+  let data = [
+    {
+      name: '华为',
+      rate: 0.5,
+    },
+    {
+      name: 'iPhone X',
+    },
+    {
+      name: '谢谢惠顾',
+    },
+    {
+      name: '手环',
+    },
+    {
+      name: '小熊抱枕',
+    },
+    {
+      name: '电风扇',
+    },
+    {
+      name: '小度音响',
+    },
+    {
+      name: '格力冰箱',
+    },
+  ]
+
+  // 第一个参数传入奖品数组，name奖品，rate中奖概率，概率0-1
+  lottery.init(data)
+
+  // 第二个参数传入必中奖品
+  // lottery.init(data, '电风扇') 
+
+</script>
