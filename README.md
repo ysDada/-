@@ -1,4 +1,4 @@
-# -demo
+# lottery
 转盘抽奖
 ### 引入lottery.js
  
