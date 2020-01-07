@@ -52,7 +52,7 @@
     if(verifyMsg){
       alert(verifyMsg)
     } else {
-      this.formatting(trophyList) //格式化数据
+      this.formatting(trophyList) //初始化数据
       this.painting(trophyList) //绘制页面
       let setTimeOutlist = this.animationList(trophyList, trophy)  //设置动画
 
@@ -88,6 +88,7 @@
     }
   }
 
+  //设置动画
   lottery.animationList = function(trophys, trophy) {
     let trophyIndex = -1, animationList = [], list = []
     if(trophy){
@@ -125,6 +126,7 @@
     })
   }
 
+  //绘制dom页面
   lottery.painting = function(list) {
     let dom = document.querySelector('.lottery-div')
     let html = ''
@@ -146,7 +148,7 @@
     dom.innerHTML = html
   }
 
-
+  //校验数据
   lottery.verify = function (list) {
     let rateAll = 0
 
@@ -161,6 +163,7 @@
     }
   }
 
+  //初始化数据
   lottery.formatting = function (trophyList) {
     let trophysNum = trophyList.length, rateAll = 0, otherRate = 0
 
